@@ -1065,29 +1065,22 @@
        No cards, no borders, no shadows, no grids of colored boxes -
        just a clean, standard, readable resume layout on white paper.
        ============================================================ */
-                @media print {
+                        @media print {
       @page {
         size: A4 portrait;
-        margin: 10mm 12mm;
+        margin: 12mm 15mm;
       }
 
-      /* HIDE ALL INTERACTIVE SCREEN COMPONENTS COMPLETELY */
       header, nav, #mainHeader, .nav-container, .nav-actions,
       .mobile-menu-btn, .mobile-cta-bar, .mobile-drawer, footer,
       #ambient-canvas, #progress-bar, .typewriter-cursor, .hero-actions {
         display: none !important;
         visibility: hidden !important;
         height: 0 !important;
-        max-height: 0 !important;
-        overflow: hidden !important;
         opacity: 0 !important;
       }
 
-      /* FORCE EVERYTHING TO PLAIN WHITE PAPER & SLATE/TERRACOTTA TEXT ONLY */
       *, *::before, *::after {
-        background: transparent !important;
-        background-color: transparent !important;
-        background-image: none !important;
         box-shadow: none !important;
         text-shadow: none !important;
         animation: none !important;
@@ -1099,14 +1092,14 @@
       html, body {
         background: #ffffff !important;
         background-color: #ffffff !important;
-        color: #1E293B !important;
+        background-image: none !important;
+        color: #232323 !important;
         font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-        font-size: 9pt !important;
-        line-height: 1.45 !important;
-        width: 100% !important;
+        font-size: 9.5pt !important;
+        line-height: 1.5 !important;
+        opacity: 1 !important;
+        min-height: 0 !important;
         height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
@@ -1118,8 +1111,9 @@
         background: #ffffff !important;
       }
 
-      /* REVEAL ALL ACCORDIONS & ANIMATED CONTENT FOR PRINT SNAPSHOT */
       .palette-revealing main,
+      .palette-revealing footer,
+      .palette-revealing header,
       .reveal-on-scroll,
       .roles-grid .accordion-card,
       .skills-grid .skill-card,
@@ -1134,23 +1128,25 @@
 
       .print-official-url-banner {
         display: block !important;
-        font-size: 8pt !important;
-        font-weight: 600 !important;
-        color: #64748B !important;
-        padding: 0 0 2mm !important;
+        text-align: left !important;
+        font-size: 7.5pt !important;
+        font-weight: 500 !important;
+        color: #666666 !important;
+        border: none !important;
+        padding: 0 0 3mm !important;
         margin: 0 0 4mm !important;
-        border-bottom: 1pt solid #E2E8F0 !important;
+        border-bottom: 0.75pt solid #dddddd !important;
       }
 
       .print-official-url-banner a {
         color: #C8664D !important;
         text-decoration: underline !important;
-        font-weight: 700 !important;
+        font-weight: 600 !important;
       }
 
       section {
-        padding: 3mm 0 !important;
-        border-bottom: 0.75pt solid #E2E8F0 !important;
+        padding: 3.5mm 0 !important;
+        border-bottom: 0.5pt solid #e2e2e2 !important;
         page-break-inside: avoid;
       }
 
@@ -1158,52 +1154,52 @@
 
       .eyebrow {
         color: #C8664D !important;
-        font-size: 8pt !important;
+        font-size: 7.5pt !important;
         font-weight: 700 !important;
         letter-spacing: 0.1em !important;
-        margin-bottom: 1.5mm !important;
+        margin-bottom: 2mm !important;
         text-transform: uppercase !important;
         display: block !important;
       }
 
-      .hero { padding: 0 0 3mm !important; }
+      .hero { padding: 0 0 4mm !important; }
 
       .hero-grid { display: block !important; }
 
       .hero-title {
         font-size: 20pt !important;
         font-weight: 800 !important;
-        color: #0F172A !important;
+        color: #14201b !important;
         margin-bottom: 1mm !important;
-        line-height: 1.15 !important;
       }
 
       .hero-typewriter { display: none !important; }
 
       .print-role-line {
         display: block !important;
-        font-weight: 700 !important;
-        font-size: 11pt !important;
+        font-weight: 600 !important;
+        font-size: 10.5pt !important;
         color: #C8664D !important;
         margin-bottom: 2mm !important;
       }
 
       .hero-bio {
-        font-size: 9pt !important;
-        color: #334155 !important;
+        font-size: 9.5pt !important;
+        color: #444444 !important;
         margin-bottom: 3mm !important;
         max-width: 100% !important;
       }
 
       .hero-card {
-        padding: 0 !important;
+        background: none !important;
         border: none !important;
+        padding: 0 !important;
       }
 
       .hero-card h3 {
         font-size: 9pt !important;
         font-style: italic !important;
-        color: #475569 !important;
+        color: #555555 !important;
         margin-bottom: 2mm !important;
       }
 
@@ -1211,13 +1207,13 @@
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
-        gap: 0 4mm !important;
+        gap: 0 3mm !important;
         font-size: 8.5pt !important;
-        color: #0F172A !important;
+        color: #333333 !important;
       }
 
       .contact-badge div {
-        color: #0F172A !important;
+        color: #333333 !important;
         margin-bottom: 1mm !important;
       }
 
@@ -1226,7 +1222,7 @@
         font-size: 13pt !important;
         font-weight: 800 !important;
         color: #C8664D !important;
-        border-bottom: 1.5pt solid #C8664D !important;
+        border-bottom: 1pt solid #C8664D !important;
         padding-bottom: 1mm !important;
         margin-bottom: 2mm !important;
       }
@@ -1240,41 +1236,51 @@
         text-transform: uppercase !important;
       }
 
-      .featured-title { font-size: 11pt !important; font-weight: 700 !important; color: #0F172A !important; margin-bottom: 1mm !important; }
-      .featured-meta { color: #64748B !important; font-size: 8.5pt !important; margin-bottom: 2mm !important; }
+      .featured-title { font-size: 11pt !important; font-weight: 700 !important; color: #14201b !important; margin-bottom: 1mm !important; }
+      .featured-meta { color: #555555 !important; font-size: 9pt !important; margin-bottom: 2mm !important; }
 
       .featured-bullets {
-        list-style-type: disc !important;
-        padding-left: 5mm !important;
-        margin-top: 1.5mm !important;
-        margin-bottom: 2mm !important;
+        list-style: none !important;
+        padding-left: 0 !important;
+        margin-top: 2mm !important;
+        margin-bottom: 3mm !important;
       }
 
       .featured-bullets li {
-        display: list-item !important;
-        list-style-type: disc !important;
-        font-size: 8.5pt !important;
-        color: #334155 !important;
+        font-size: 8.4pt !important;
+        color: #333333 !important;
+        padding-left: 4mm !important;
+        position: relative !important;
         margin-bottom: 1mm !important;
+      }
+
+      /* CLEAN ROUND BULLET DOT IN TERRACOTTA #C8664D */
+      .featured-bullets li::before {
+        content: "2" !important;
+        color: #C8664D !important;
+        font-weight: 900 !important;
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
       }
 
       .roles-grid { display: block !important; }
 
       .accordion-card {
-        margin-bottom: 2.5mm !important;
+        margin-bottom: 2mm !important;
         border: none !important;
         padding: 0 !important;
       }
 
       .accordion-header { padding: 0 !important; }
 
-      .role-info h3 { font-size: 10pt !important; font-weight: 700 !important; color: #0F172A !important; }
+      .role-info h3 { font-size: 10pt !important; font-weight: 700 !important; color: #14201b !important; }
       .role-info p { font-size: 8.5pt !important; color: #C8664D !important; font-weight: 600 !important; }
 
       .accordion-icon { display: none !important; }
 
       .role-desc-list { padding-left: 4mm !important; margin-top: 1mm !important; }
-      .role-desc-list li { font-size: 8.2pt !important; margin-bottom: 0.5mm !important; color: #334155 !important; }
+      .role-desc-list li { font-size: 8.2pt !important; margin-bottom: 0.5mm !important; color: #333333 !important; }
 
       .skills-grid { display: block !important; }
 
@@ -1286,13 +1292,14 @@
 
       .skill-card h4 {
         display: inline !important;
-        font-size: 8.5pt !important;
-        font-weight: 500 !important;
-        color: #0F172A !important;
+        font-size: 9pt !important;
+        font-weight: 400 !important;
+        color: #333333 !important;
       }
 
+      /* CLEAN MIDDLE DOT SEPARATOR IN TERRACOTTA #C8664D */
       .skill-card:not(:last-child) h4::after {
-        content: " · " !important;
+        content: "  b7 " !important;
         color: #C8664D !important;
         font-weight: 700 !important;
       }
@@ -1301,13 +1308,13 @@
 
       .credential-card {
         border: none !important;
-        border-left: 2.5pt solid #C8664D !important;
+        border-left: 2pt solid #C8664D !important;
         padding: 0 0 0 3mm !important;
         margin-bottom: 2mm !important;
       }
 
-      .credential-card h4 { font-size: 9.5pt !important; font-weight: 700 !important; color: #0F172A !important; }
-      .credential-card p { font-size: 8.5pt !important; color: #64748B !important; }
+      .credential-card h4 { font-size: 9.5pt !important; font-weight: 700 !important; color: #14201b !important; }
+      .credential-card p { font-size: 8.5pt !important; color: #666666 !important; }
     }
   </style>
 </head>
@@ -1351,7 +1358,7 @@
       <!-- Palette 02 permanently locked as brand direction -->
 
       <div class="nav-actions">
-        <a href="Husam_Al_Sardy_CV.pdf?v=v25" target="_blank" rel="noopener" class="btn btn-primary btn-desktop">
+        <a href="Husam_Al_Sardy_CV.pdf?v=v26" target="_blank" rel="noopener" class="btn btn-primary btn-desktop">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm1 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2z"/></svg>
           Download PDF
         </a>
@@ -1362,7 +1369,7 @@
 
   <!-- Mobile Floating Quick Action Bar -->
   <div class="mobile-cta-bar" id="mobileCtaBar">
-    <a href="Husam_Al_Sardy_CV.pdf?v=v25" target="_blank" rel="noopener" class="mobile-cta-btn btn-primary">
+    <a href="Husam_Al_Sardy_CV.pdf?v=v26" target="_blank" rel="noopener" class="mobile-cta-btn btn-primary">
       <svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm1 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2z"/></svg>
       <span>Download PDF</span>
     </a>
@@ -1375,7 +1382,7 @@
     <a href="#experience" onclick="toggleMobileMenu()">Experience</a>
     <a href="#skills" onclick="toggleMobileMenu()">Skills</a>
     <a href="#credentials" onclick="toggleMobileMenu()">Credentials</a>
-    <a href="Husam_Al_Sardy_CV.pdf?v=v25" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 1rem; width: 100%; max-width: 280px;">Download PDF</a>
+    <a href="Husam_Al_Sardy_CV.pdf?v=v26" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 1rem; width: 100%; max-width: 280px;">Download PDF</a>
     <button onclick="toggleMobileMenu()" class="btn btn-outline" style="width: 100%; max-width: 280px;">Close Menu</button>
   </div>
 
@@ -1405,7 +1412,7 @@
 
           <div class="hero-actions">
             <a href="mailto:husamalsardy1@gmail.com" class="btn btn-primary">Get in Touch</a>
-            <a href="Husam_Al_Sardy_CV.pdf?v=v25" target="_blank" rel="noopener" class="btn btn-outline">Download PDF</a>
+            <a href="Husam_Al_Sardy_CV.pdf?v=v26" target="_blank" rel="noopener" class="btn btn-outline">Download PDF</a>
           </div>
         </div>
 
@@ -1419,7 +1426,7 @@
             <div>📞 Jordan: +962 77 730 7162</div>
             <div>📞 Russia: +7 964 331 73 03</div>
             <div>
-              💬 WeChat: <a href="https://asem-sardy.github.io/husamalsardy-card/card.html?v=v25" target="_blank" rel="noopener" onclick="openWeChatModal(); return false;" style="color: #C8664D !important; font-weight:700 !important; text-decoration:underline !important; cursor:pointer;">Add Friend (Scan QR)</a>
+              💬 WeChat: <a href="https://asem-sardy.github.io/husamalsardy-card/card.html?v=v26" target="_blank" rel="noopener" onclick="openWeChatModal(); return false;" style="color: #C8664D !important; font-weight:700 !important; text-decoration:underline !important; cursor:pointer;">Add Friend (Scan QR)</a>
             </div>
             <div>✉️ husamalsardy1@gmail.com</div>
           </div>
@@ -1638,7 +1645,7 @@
 
       <div class="footer-actions">
         <a href="mailto:husamalsardy1@gmail.com" class="btn btn-primary">husamalsardy1@gmail.com</a>
-        <a href="Husam_Al_Sardy_CV.pdf?v=v25" target="_blank" rel="noopener" class="btn btn-outline">Download PDF CV</a>
+        <a href="Husam_Al_Sardy_CV.pdf?v=v26" target="_blank" rel="noopener" class="btn btn-outline">Download PDF CV</a>
       </div>
 
       <div class="footer-social-links">
