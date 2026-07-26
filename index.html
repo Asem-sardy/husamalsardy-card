@@ -750,23 +750,26 @@
 
     @media (min-width: 720px) {
       .featured-bullets { column-count: 2; column-gap: 2rem; }
-      .featured-bullets li { break-inside: avoid; }
-    }
+            .featured-bullets {
+        list-style-type: disc !important;
+        padding-left: 5mm !important;
+        margin-top: 2mm !important;
+        margin-bottom: 3mm !important;
+      }
 
-    .featured-bullets li {
-      position: relative;
-      padding-left: 1.75rem;
-      color: var(--text-main);
-      font-size: clamp(0.95rem, 3vw, 1.05rem);
-      line-height: 1.55;
-    }
+      .featured-bullets li {
+        display: list-item !important;
+        list-style-type: disc !important;
+        font-size: 8.8pt !important;
+        color: #334155 !important;
+        padding-left: 1mm !important;
+        margin-bottom: 1.5mm !important;
+      }
 
-    .featured-bullets li::before {
-      content: "✦";
-      position: absolute;
-      left: 0;
-      color: var(--accent-gold);
-    }
+      .featured-bullets li::before {
+        content: none !important;
+        display: none !important;
+      }
 
     .roles-grid {
       display: grid;
@@ -1236,16 +1239,25 @@
       .featured-title { font-size: 11.5pt !important; font-weight: 700 !important; color: #0F172A !important; margin-bottom: 1mm !important; }
       .featured-meta { color: #64748B !important; font-size: 9pt !important; margin-bottom: 2mm !important; }
 
+            .featured-bullets {
+        list-style-type: disc !important;
+        padding-left: 5mm !important;
+        margin-top: 2mm !important;
+        margin-bottom: 3mm !important;
+      }
+
       .featured-bullets li {
+        display: list-item !important;
+        list-style-type: disc !important;
         font-size: 8.8pt !important;
         color: #334155 !important;
-        padding-left: 3.5mm !important;
+        padding-left: 1mm !important;
+        margin-bottom: 1.5mm !important;
       }
 
       .featured-bullets li::before {
-        content: "- " !important;
-        color: #C8664D !important;
-        font-weight: 700 !important;
+        content: none !important;
+        display: none !important;
       }
 
       .roles-grid { display: block !important; }
@@ -1352,7 +1364,7 @@
       <!-- Palette 02 permanently locked as brand direction -->
 
       <div class="nav-actions">
-        <a href="Husam_Al_Sardy_CV.pdf?v=v20" target="_blank" rel="noopener" class="btn btn-primary btn-desktop">
+        <a href="Husam_Al_Sardy_CV.pdf?v=v21" target="_blank" rel="noopener" class="btn btn-primary btn-desktop">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm1 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2z"/></svg>
           Download PDF
         </a>
@@ -1363,7 +1375,7 @@
 
   <!-- Mobile Floating Quick Action Bar -->
   <div class="mobile-cta-bar" id="mobileCtaBar">
-    <a href="Husam_Al_Sardy_CV.pdf?v=v20" target="_blank" rel="noopener" class="mobile-cta-btn btn-primary">
+    <a href="Husam_Al_Sardy_CV.pdf?v=v21" target="_blank" rel="noopener" class="mobile-cta-btn btn-primary">
       <svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm1 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2z"/></svg>
       <span>Download PDF</span>
     </a>
@@ -1376,7 +1388,7 @@
     <a href="#experience" onclick="toggleMobileMenu()">Experience</a>
     <a href="#skills" onclick="toggleMobileMenu()">Skills</a>
     <a href="#credentials" onclick="toggleMobileMenu()">Credentials</a>
-    <a href="Husam_Al_Sardy_CV.pdf?v=v20" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 1rem; width: 100%; max-width: 280px;">Download PDF</a>
+    <a href="Husam_Al_Sardy_CV.pdf?v=v21" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 1rem; width: 100%; max-width: 280px;">Download PDF</a>
     <button onclick="toggleMobileMenu()" class="btn btn-outline" style="width: 100%; max-width: 280px;">Close Menu</button>
   </div>
 
@@ -1406,7 +1418,7 @@
 
           <div class="hero-actions">
             <a href="mailto:husamalsardy1@gmail.com" class="btn btn-primary">Get in Touch</a>
-            <a href="Husam_Al_Sardy_CV.pdf?v=v20" target="_blank" rel="noopener" class="btn btn-outline">Download PDF</a>
+            <a href="Husam_Al_Sardy_CV.pdf?v=v21" target="_blank" rel="noopener" class="btn btn-outline">Download PDF</a>
           </div>
         </div>
 
@@ -1420,7 +1432,7 @@
             <div>📞 Jordan: +962 77 730 7162</div>
             <div>📞 Russia: +7 964 331 73 03</div>
             <div>
-              💬 WeChat: <a href="https://asem-sardy.github.io/husamalsardy-card/card.html?v=v20" target="_blank" rel="noopener" onclick="openWeChatModal(); return false;" style="color: #C8664D !important; font-weight:700 !important; text-decoration:underline !important; cursor:pointer;">Add Friend (Scan QR)</a>
+              💬 WeChat: <a href="https://asem-sardy.github.io/husamalsardy-card/card.html?v=v21" target="_blank" rel="noopener" onclick="openWeChatModal(); return false;" style="color: #C8664D !important; font-weight:700 !important; text-decoration:underline !important; cursor:pointer;">Add Friend (Scan QR)</a>
             </div>
             <div>✉️ husamalsardy1@gmail.com</div>
           </div>
@@ -1639,7 +1651,7 @@
 
       <div class="footer-actions">
         <a href="mailto:husamalsardy1@gmail.com" class="btn btn-primary">husamalsardy1@gmail.com</a>
-        <a href="Husam_Al_Sardy_CV.pdf?v=v20" target="_blank" rel="noopener" class="btn btn-outline">Download PDF CV</a>
+        <a href="Husam_Al_Sardy_CV.pdf?v=v21" target="_blank" rel="noopener" class="btn btn-outline">Download PDF CV</a>
       </div>
 
       <div class="footer-social-links">
