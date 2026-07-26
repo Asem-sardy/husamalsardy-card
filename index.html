@@ -1062,16 +1062,12 @@
        No cards, no borders, no shadows, no grids of colored boxes -
        just a clean, standard, readable resume layout on white paper.
        ============================================================ */
-    @media print {
+        @media print {
       @page {
         size: A4 portrait;
-        margin: 10mm 13mm;
+        margin: 12mm 15mm;
       }
 
-      /* iOS Safari's print engine is far less forgiving than Chromium about
-         position/z-index/overflow during pagination - a positioned or
-         clipped ancestor can paint over everything and produce a solid
-         blank page. Flatten the whole document to normal flow for print. */
       * {
         box-shadow: none !important;
         text-shadow: none !important;
@@ -1088,8 +1084,8 @@
         background: #ffffff !important;
         background-color: #ffffff !important;
         background-image: none !important;
-        color: #232323 !important;
-        font-size: 10pt !important;
+        color: #1E293B !important;
+        font-size: 9.5pt !important;
         line-height: 1.5 !important;
         opacity: 1 !important;
         min-height: 0 !important;
@@ -1103,8 +1099,6 @@
         display: none !important;
       }
 
-      /* Print is a static snapshot - scroll-triggered reveal animation state
-         must never gate visibility here, or unscrolled sections vanish. */
       .palette-revealing main,
       .palette-revealing footer,
       .palette-revealing header,
@@ -1122,69 +1116,68 @@
         padding: 0 !important;
       }
 
-      /* --- one small, quiet identifier line at the very top --- */
       .print-official-url-banner {
         display: block !important;
         text-align: left !important;
-        font-size: 7.5pt !important;
-        font-weight: 500 !important;
-        color: #666 !important;
+        font-size: 8pt !important;
+        font-weight: 600 !important;
+        color: #64748B !important;
         border: none !important;
         padding: 0 0 3mm !important;
-        margin: 0 0 4mm !important;
-        border-bottom: 0.75pt solid #ddd !important;
+        margin: 0 0 5mm !important;
+        border-bottom: 1pt solid #E2E8F0 !important;
       }
 
-      /* Keep the portfolio URL a real, clickable link in the exported PDF. */
       .print-official-url-banner a {
         color: #C8664D !important;
         text-decoration: underline !important;
+        font-weight: 700 !important;
       }
 
       section {
-        padding: 2mm 0 !important;
-        border-bottom: 0.5pt solid #e2e2e2 !important;
+        padding: 4mm 0 !important;
+        border-bottom: 0.75pt solid #F1F5F9 !important;
       }
 
       section:last-of-type { border-bottom: none !important; }
 
       .eyebrow {
         color: #C8664D !important;
-        font-size: 7.5pt !important;
-        letter-spacing: 0.1em !important;
+        font-size: 8pt !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.12em !important;
         margin-bottom: 2mm !important;
+        text-transform: uppercase !important;
       }
 
-      /* --- hero: single column, name + role line + plain contact list --- */
-      .hero { padding: 0 0 4mm !important; }
+      .hero { padding: 0 0 5mm !important; }
 
       .hero-grid {
         display: block !important;
       }
 
       .hero-title {
-        font-size: 20pt !important;
-        margin-bottom: 1mm !important;
-        color: #14201b !important;
+        font-size: 22pt !important;
+        font-weight: 800 !important;
+        margin-bottom: 1.5mm !important;
+        color: #0F172A !important;
       }
 
-      /* The animated line is always mid-type when the PDF renders - use the
-         static duplicate instead so the role never prints as a stray letter. */
       .hero-typewriter { display: none !important; }
 
       .print-role-line {
         display: block !important;
         font-family: var(--font-display);
-        font-weight: 600;
-        font-size: 10.5pt !important;
+        font-weight: 700 !important;
+        font-size: 11pt !important;
         color: #C8664D !important;
-        margin-bottom: 2mm !important;
+        margin-bottom: 3mm !important;
       }
 
       .hero-bio {
         font-size: 9.5pt !important;
-        margin-bottom: 3mm !important;
-        color: #444 !important;
+        margin-bottom: 4mm !important;
+        color: #334155 !important;
         max-width: 100% !important;
       }
 
@@ -1199,26 +1192,31 @@
       .hero-card::before { display: none !important; }
 
       .hero-card h3 {
-        font-size: 9pt !important;
+        font-size: 9.5pt !important;
         font-style: italic !important;
-        font-weight: 400 !important;
-        color: #555 !important;
+        font-weight: 500 !important;
+        color: #475569 !important;
         margin-bottom: 2mm !important;
       }
 
       .contact-badge {
         flex-direction: row !important;
         flex-wrap: wrap !important;
-        gap: 0 3mm !important;
-        font-size: 8.5pt !important;
+        gap: 0 4mm !important;
+        font-size: 8.8pt !important;
         padding-top: 0 !important;
         border-top: none !important;
-        color: #333 !important;
+        color: #1E293B !important;
       }
 
-      /* --- teaching: plain heading + two-column bullet list, no card --- */
-      .section-header { margin-bottom: 3mm !important; }
-      .section-header h2 { font-size: 13pt !important; color: #14201b !important; }
+      .section-header { margin-bottom: 4mm !important; }
+      .section-header h2 {
+        font-size: 14pt !important;
+        font-weight: 800 !important;
+        color: #C8664D !important;
+        border-bottom: 1.5pt solid #C8664D !important;
+        padding-bottom: 1.5mm !important;
+      }
 
       .featured-practice {
         background: none !important;
@@ -1230,43 +1228,39 @@
       .featured-badge {
         background: none !important;
         color: #C8664D !important;
+        font-weight: 700 !important;
         padding: 0 !important;
-        font-size: 7.5pt !important;
+        font-size: 8pt !important;
       }
 
-      .featured-title { font-size: 11pt !important; color: #14201b !important; margin-bottom: 1mm !important; }
-      .featured-meta { color: #555 !important; font-size: 9pt !important; margin-bottom: 2mm !important; }
+      .featured-title { font-size: 11.5pt !important; font-weight: 700 !important; color: #0F172A !important; margin-bottom: 1mm !important; }
+      .featured-meta { color: #64748B !important; font-size: 9pt !important; margin-bottom: 2mm !important; }
 
       .featured-bullets li {
-        font-size: 8.4pt !important;
-        color: #333 !important;
+        font-size: 8.8pt !important;
+        color: #334155 !important;
         padding-left: 3.5mm !important;
       }
 
       .featured-bullets li::before {
-        content: "\2013" !important; /* en dash, not the gold star */
-        color: #999 !important;
+        content: "3" !important;
+        color: #C8664D !important;
+        font-weight: 700 !important;
       }
 
-      /* --- roles: plain stacked entries, no card chrome --- */
-      .roles-grid {
-        display: block !important;
-      }
+      .roles-grid { display: block !important; }
 
       .accordion-card {
         background: none !important;
         border: none !important;
         border-radius: 0 !important;
-        margin-bottom: 1.7mm !important;
+        margin-bottom: 3mm !important;
       }
 
-      .accordion-header {
-        padding: 0 !important;
-        min-height: 0 !important;
-      }
+      .accordion-header { padding: 0 !important; min-height: 0 !important; }
 
-      .role-info h3 { font-size: 10pt !important; color: #14201b !important; }
-      .role-info p { font-size: 8.5pt !important; color: #666 !important; font-weight: 500 !important; }
+      .role-info h3 { font-size: 10.5pt !important; font-weight: 700 !important; color: #0F172A !important; }
+      .role-info p { font-size: 8.8pt !important; color: #C8664D !important; font-weight: 600 !important; }
 
       .accordion-content {
         max-height: none !important;
@@ -1279,13 +1273,9 @@
       .accordion-icon { display: none !important; }
 
       .role-desc-list { padding-left: 4mm !important; }
-      .role-desc-list li { font-size: 8.2pt !important; margin-bottom: 0.5mm !important; color: #333 !important; }
-      .role-desc-list .empty-note { color: #888 !important; }
+      .role-desc-list li { font-size: 8.5pt !important; margin-bottom: 0.8mm !important; color: #334155 !important; }
 
-      /* --- skills: one plain wrapping line, not a grid of chips --- */
-      .skills-grid {
-        display: block !important;
-      }
+      .skills-grid { display: block !important; }
 
       .skill-card {
         display: inline !important;
@@ -1297,30 +1287,28 @@
       .skill-card h4 {
         display: inline !important;
         font-size: 9pt !important;
-        font-weight: 400 !important;
-        color: #333 !important;
+        font-weight: 500 !important;
+        color: #1E293B !important;
       }
 
       .skill-card:not(:last-child) h4::after {
-        content: " \00b7 " !important;
-        color: #999 !important;
+        content: "  b7 " !important;
+        color: #C8664D !important;
+        font-weight: 700 !important;
       }
 
-      /* --- credentials: plain text lines --- */
-      .credentials-grid {
-        display: block !important;
-      }
+      .credentials-grid { display: block !important; }
 
       .credential-card {
         background: none !important;
         border: none !important;
-        border-left: 2pt solid #C8664D !important;
-        padding: 0 0 0 3mm !important;
-        margin-bottom: 1.8mm !important;
+        border-left: 2.5pt solid #C8664D !important;
+        padding: 0 0 0 3.5mm !important;
+        margin-bottom: 2.5mm !important;
       }
 
-      .credential-card h4 { font-size: 9.5pt !important; color: #14201b !important; }
-      .credential-card p { font-size: 8.5pt !important; color: #666 !important; }
+      .credential-card h4 { font-size: 9.8pt !important; font-weight: 700 !important; color: #0F172A !important; }
+      .credential-card p { font-size: 8.8pt !important; color: #64748B !important; }
     }
   </style>
 </head>
@@ -1364,7 +1352,7 @@
       <!-- Palette 02 permanently locked as brand direction -->
 
       <div class="nav-actions">
-        <a href="Husam_Al_Sardy_CV.pdf?v=v16" target="_blank" rel="noopener" class="btn btn-primary btn-desktop">
+        <a href="Husam_Al_Sardy_CV.pdf?v=v17" target="_blank" rel="noopener" class="btn btn-primary btn-desktop">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm1 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2z"/></svg>
           Download PDF
         </a>
@@ -1375,7 +1363,7 @@
 
   <!-- Mobile Floating Quick Action Bar -->
   <div class="mobile-cta-bar" id="mobileCtaBar">
-    <a href="Husam_Al_Sardy_CV.pdf?v=v16" target="_blank" rel="noopener" class="mobile-cta-btn btn-primary">
+    <a href="Husam_Al_Sardy_CV.pdf?v=v17" target="_blank" rel="noopener" class="mobile-cta-btn btn-primary">
       <svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm1 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2z"/></svg>
       <span>Download PDF</span>
     </a>
@@ -1388,7 +1376,7 @@
     <a href="#experience" onclick="toggleMobileMenu()">Experience</a>
     <a href="#skills" onclick="toggleMobileMenu()">Skills</a>
     <a href="#credentials" onclick="toggleMobileMenu()">Credentials</a>
-    <a href="Husam_Al_Sardy_CV.pdf?v=v16" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 1rem; width: 100%; max-width: 280px;">Download PDF</a>
+    <a href="Husam_Al_Sardy_CV.pdf?v=v17" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 1rem; width: 100%; max-width: 280px;">Download PDF</a>
     <button onclick="toggleMobileMenu()" class="btn btn-outline" style="width: 100%; max-width: 280px;">Close Menu</button>
   </div>
 
@@ -1418,7 +1406,7 @@
 
           <div class="hero-actions">
             <a href="mailto:husamalsardy1@gmail.com" class="btn btn-primary">Get in Touch</a>
-            <a href="Husam_Al_Sardy_CV.pdf?v=v16" target="_blank" rel="noopener" class="btn btn-outline">Download PDF</a>
+            <a href="Husam_Al_Sardy_CV.pdf?v=v17" target="_blank" rel="noopener" class="btn btn-outline">Download PDF</a>
           </div>
         </div>
 
@@ -1651,7 +1639,7 @@
 
       <div class="footer-actions">
         <a href="mailto:husamalsardy1@gmail.com" class="btn btn-primary">husamalsardy1@gmail.com</a>
-        <a href="Husam_Al_Sardy_CV.pdf?v=v16" target="_blank" rel="noopener" class="btn btn-outline">Download PDF CV</a>
+        <a href="Husam_Al_Sardy_CV.pdf?v=v17" target="_blank" rel="noopener" class="btn btn-outline">Download PDF CV</a>
       </div>
 
       <div class="footer-social-links">
