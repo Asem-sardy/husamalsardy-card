@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" data-palette="2">
 <head>
+  <script>
+    try {
+      localStorage.removeItem('palette');
+      localStorage.removeItem('husam-palette');
+    } catch(e) {}
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Husam Al Sardy — General Manager & Educator</title>
@@ -12,8 +18,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
-      :root {
-      /* Palette 02: Slate Charcoal & Warm Terracotta */
+        :root {
+      /* Slate Charcoal & Warm Terracotta (Sole Brand Palette) */
       --bg-main: #0F172A;
       --bg-surface: #1E293B;
       --bg-card: #1E293B;
@@ -49,51 +55,9 @@
        --------------------------------------------------------------- */
 
     /* 02 - Slate & Terracotta */
-    :root[data-palette="2"] {
-      --bg-main: #16252C;      --bg-main-rgb: 22, 37, 44;
-      --bg-grad-top: #223843;
-      --bg-surface: #1E3038;   --bg-surface-rgb: 30, 48, 56;
-      --bg-card: #223843;      --bg-card-hover: #2A4550;
-      --accent-gold: #D77A61;  --accent-gold-hover: #E58E75;
-      --accent-rgb: 215, 122, 97;
-      --accent-deep: #A85942;  --on-accent: #16252C;
-      --accent-sage: #D8B4A0;  --accent-2-rgb: 216, 180, 160;
-      --text-main: #EFF1F3;    --text-muted: #A8B6BD;
-      --border-subtle: rgba(215, 122, 97, 0.22);
-      --border-strong: rgba(215, 122, 97, 0.48);
-    }
-
-    /* 03 - Oxford Navy & Cyan */
-    :root[data-palette="3"] {
-      --bg-main: #0A1128;      --bg-main-rgb: 10, 17, 40;
-      --bg-grad-top: #001F54;
-      --bg-surface: #04234D;   --bg-surface-rgb: 4, 35, 77;
-      --bg-card: #034078;      --bg-card-hover: #044B8C;
-      --accent-gold: #2AA7CC;  --accent-gold-hover: #45BBDD;
-      --accent-rgb: 42, 167, 204;
-      --accent-deep: #1282A2;  --on-accent: #06132E;
-      --accent-sage: #8FB8CE;  --accent-2-rgb: 143, 184, 206;
-      --text-main: #FEFCFB;    --text-muted: #9DB2C4;
-      --border-subtle: rgba(42, 167, 204, 0.22);
-      --border-strong: rgba(42, 167, 204, 0.48);
-    }
-
-    /* 04 - Velvet Night & Cobalt */
-    :root[data-palette="4"] {
-      --bg-main: #1B1725;      --bg-main-rgb: 27, 23, 37;
-      --bg-grad-top: #2A2438;
-      --bg-surface: #262131;   --bg-surface-rgb: 38, 33, 49;
-      --bg-card: #2E293A;      --bg-card-hover: #3A3348;
-      --accent-gold: #4A8BF0;  --accent-gold-hover: #6BA2F5;
-      --accent-rgb: 74, 139, 240;
-      --accent-deep: #226CE0;  --on-accent: #0E0B16;
-      --accent-sage: #A499B3;  --accent-2-rgb: 164, 153, 179;
-      --text-main: #F2EFF6;    --text-muted: #A499B3;
-      --border-subtle: rgba(74, 139, 240, 0.22);
-      --border-strong: rgba(74, 139, 240, 0.48);
-    }
-
-    * {
+    :root/* 03 - Oxford Navy & Cyan */
+    :root/* 04 - Velvet Night & Cobalt */
+    :root* {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -1752,19 +1716,6 @@
     document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
 
     /* --- visual direction switcher --- */
-    function applyPalette(id, persist) {
-      document.documentElement.setAttribute('data-palette', '2');
-      if (typeof initCanvas === 'function') initCanvas();
-    }
-
-    document.querySelectorAll('.palette-dot').forEach(function (dot) {
-      dot.addEventListener('click', function () {
-        applyPalette(dot.dataset.paletteSet, true);
-      });
-    });
-
-    applyPalette('2', true);
-
     function toggleAccordion(header) {
       header.parentElement.classList.toggle('open');
     }
