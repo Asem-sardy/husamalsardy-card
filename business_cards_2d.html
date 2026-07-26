@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Husam Al Sardy — Executive Business Card Suite</title>
+  <title>Husam Al Sardy</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,31 +46,13 @@
       margin-bottom: 1.2rem;
     }
     
-    .header-eyebrow {
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #D77A61;
-      margin-bottom: 0.25rem;
-      display: inline-block;
-    }
-    
     h1 {
       font-family: var(--font-display);
-      font-size: clamp(1.4rem, 4.5vw, 2.1rem);
+      font-size: clamp(1.6rem, 5vw, 2.3rem);
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1.15;
       color: var(--text-heading);
-      margin-bottom: 0.25rem;
-    }
-    
-    p.sub {
-      color: var(--text-muted);
-      font-size: clamp(0.82rem, 3vw, 0.95rem);
-      line-height: 1.4;
     }
     
     .main-wrapper {
@@ -238,18 +220,6 @@
       gap: 0.85rem;
     }
 
-    .action-block-title {
-      font-family: var(--font-display);
-      font-size: 0.95rem;
-      font-weight: 800;
-      color: #0F172A;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
     .action-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -283,15 +253,8 @@
     .action-btn-wechat {
       background: linear-gradient(135deg, #07C160 0%, #059649 100%);
       color: #FFFFFF;
-      grid-column: span 2;
-      font-size: 1.08rem;
-      padding: 1.15rem 1.5rem;
     }
-    @media (max-width: 540px) {
-      .action-btn-wechat {
-        grid-column: span 1;
-      }
-    }
+
     .action-btn-wechat:hover {
       transform: translateY(-2px);
       box-shadow: 0 12px 24px -4px rgba(7, 193, 96, 0.45);
@@ -319,12 +282,11 @@
       background: #1E293B;
       color: #F8FAFC;
       border: 1px solid #334155;
-      grid-column: span 2;
     }
-    @media (max-width: 540px) {
-      .action-btn-slate {
-        grid-column: span 1;
-      }
+    .action-btn-slate:hover {
+      transform: translateY(-2px);
+      background: #334155;
+      box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.3);
     }
 
     /* LIGHTBOX MODAL FOR FULL VIEWPORT EXPANSION & WECHAT */
@@ -392,9 +354,7 @@
 <body>
 
   <div class="header-block">
-    <span class="header-eyebrow">Official Executive Portfolio</span>
     <h1>Husam Al Sardy</h1>
-    <p class="sub">Executive 2D Business Card & Direct Contact Hub</p>
   </div>
 
   <div class="main-wrapper">
@@ -433,33 +393,28 @@
 
     <!-- 2. PROMINENT IMMEDIATE VIEWPORT ACTION BUTTONS -->
     <div class="action-block">
-      <div class="action-block-title">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        Direct Contact Actions
-      </div>
-
       <div class="action-grid">
-        <!-- HUGE WECHAT BUTTON -->
+        <!-- WECHAT BUTTON -->
         <button onclick="openWeChatModal()" class="action-btn action-btn-wechat">
-          <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02 2.665 0 4.826 1.8 4.826 4.02 0 2.218-2.161 4.018-4.824 4.018zm-5.69-3.956c0-2.88 2.825-5.214 6.309-5.214 3.486 0 6.31 2.334 6.31 5.214 0 2.882-2.824 5.216-6.31 5.216-.761 0-1.492-.112-2.17-.318l-2.078 1.096.536-1.879a5.163 5.163 0 0 1-2.597-4.115zm.698-3.081c-.244 0-.472.016-.697.045C4.857 5.093 3 6.643 3 8.52c0 .991.503 1.9 1.341 2.564l-.382 1.34 1.482-.782a5.556 5.556 0 0 0 1.547.227c.078.682.355 1.319.782 1.877A6.877 6.877 0 0 1 2.454 13l-2.454 1.295.634-2.222C.228 11.026 0 9.832 0 8.52c0-2.828 2.766-5.12 6.184-5.12 1.636 0 3.129.53 4.225 1.428a6.3 6.3 0 0 0-4.225 2.564z"/></svg>
-          <span>Add on WeChat (Scan QR Code)</span>
+          <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16"><path d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02 2.665 0 4.826 1.8 4.826 4.02 0 2.218-2.161 4.018-4.824 4.018zm-5.69-3.956c0-2.88 2.825-5.214 6.309-5.214 3.486 0 6.31 2.334 6.31 5.214 0 2.882-2.824 5.216-6.31 5.216-.761 0-1.492-.112-2.17-.318l-2.078 1.096.536-1.879a5.163 5.163 0 0 1-2.597-4.115zm.698-3.081c-.244 0-.472.016-.697.045C4.857 5.093 3 6.643 3 8.52c0 .991.503 1.9 1.341 2.564l-.382 1.34 1.482-.782a5.556 5.556 0 0 0 1.547.227c.078.682.355 1.319.782 1.877A6.877 6.877 0 0 1 2.454 13l-2.454 1.295.634-2.222C.228 11.026 0 9.832 0 8.52c0-2.828 2.766-5.12 6.184-5.12 1.636 0 3.129.53 4.225 1.428a6.3 6.3 0 0 0-4.225 2.564z"/></svg>
+          <span>Add on WeChat (Scan QR)</span>
         </button>
 
         <!-- WHATSAPP BUTTON -->
         <a href="https://wa.me/962777040774" target="_blank" rel="noopener" class="action-btn action-btn-whatsapp">
-          <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
           <span>WhatsApp Direct</span>
         </a>
 
         <!-- EMAIL BUTTON -->
         <a href="mailto:husamalsardy1@gmail.com" class="action-btn action-btn-terracotta">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.731z"/></svg>
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.731z"/></svg>
           <span>Email Husam</span>
         </a>
 
         <!-- CALL BUTTON -->
         <a href="tel:+962777040774" class="action-btn action-btn-slate">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z"/></svg>
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z"/></svg>
           <span>Call Jordan: +962 77 704 0774</span>
         </a>
       </div>
