@@ -630,6 +630,79 @@
       .credential-card p { font-size: 8.5pt !important; color: #666 !important; }
     }
   </style>
+<style>
+  /* IMPERMEABLE HORIZONTAL OVERFLOW LOCK - VERTICAL SCROLLING ONLY */
+  html, body {
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box !important;
+  }
+
+  main, section, header, footer, .hero, .hero-grid, .hero-actions, .hero-card, .contact-badge, .nav-container {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding: 0 !important;
+      overflow-x: hidden !important;
+    }
+
+    main {
+      padding: 1rem 0.85rem 3.5rem !important;
+      max-width: 100vw !important;
+      overflow-x: hidden !important;
+    }
+
+    .hero {
+      padding: 1rem 0 1.5rem !important;
+      max-width: 100% !important;
+    }
+
+    .hero-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 1.5rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    .hero-actions {
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      gap: 0.75rem !important;
+      margin-top: 0.5rem !important;
+    }
+
+    .hero-actions .btn {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      min-height: 48px !important;
+      font-size: 0.92rem !important;
+    }
+
+    .hero-card {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 1.1rem !important;
+      box-sizing: border-box !important;
+    }
+  }
+</style>
 </head>
 <body>
   <script>
