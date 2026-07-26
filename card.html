@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Husam Al Sardy — Executive Business Card (Slate & Terracotta)</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-page: #FFFFFF;
+      --text-heading: #0F172A;
+      --text-muted: #475569;
+      --card-container-bg: #FAFAFA;
+      --card-border: #E2E8F0;
+      
+      --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-heading);
+      font-family: var(--font-body);
+      padding: 3rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .header-block {
+      text-align: center;
+      max-width: 720px;
+      margin-bottom: 2.5rem;
+      padding: 0 0.5rem;
+    }
+    
+    .header-eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #D77A61;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 5.5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--text-heading);
+      margin-bottom: 0.5rem;
+    }
+    
+    p.sub {
+      color: var(--text-muted);
+      font-size: clamp(0.9rem, 3.5vw, 1.02rem);
+      line-height: 1.5;
+    }
+    
+    .cards-container {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    
+    .card-wrap {
+      background: var(--card-container-bg);
+      border: 1px solid var(--card-border);
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.1);
+      transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+    
+    .card-wrap:active {
+      transform: scale(0.98);
+    }
+    
+    @media (min-width: 768px) {
+      .card-wrap:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.18);
+      }
+    }
+    
+    .card-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .card-palette-title {
+      font-family: var(--font-display);
+      font-size: clamp(0.88rem, 3vw, 1rem);
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+    
+    .zoom-hint {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #D77A61;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(215, 122, 97, 0.08);
+      padding: 0.25rem 0.6rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* Standard 3.5" x 2.0" Business Card Aspect Ratio */
+    .biz-card {
+      width: 100%;
+      aspect-ratio: 1.75;
+      border-radius: 12px;
+      padding: 5%;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+      user-select: none;
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid rgba(215, 122, 97, 0.4);
+    }
+    
+    .card-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1 1 auto;
+      min-width: 0;
+      padding-right: 4%;
+      z-index: 2;
+    }
+    
+    .card-brand {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    
+    .card-name {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 4.5 cqw, 1.45rem);
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+      color: #E2876E;
+      white-space: normal;
+      word-break: break-word;
+    }
+    
+    .card-title {
+      font-size: clamp(0.55rem, 2.3 cqw, 0.76rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      line-height: 1.2;
+      color: #E2876E;
+    }
+    
+    .card-contact {
+      font-size: clamp(0.5rem, 2.1 cqw, 0.7rem);
+      line-height: 1.45;
+      font-weight: 500;
+      opacity: 0.92;
+    }
+
+    .card-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-bottom: 0.1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .card-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex: 0 0 auto;
+      z-index: 2;
+    }
+    
+    .qr-box {
+      background: #FFFFFF;
+      padding: 6%;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    
+    .qr-box img {
+      width: clamp(44px, 15 cqw, 68px);
+      height: clamp(44px, 15 cqw, 68px);
+      display: block;
+    }
+    
+    .scan-text {
+      font-size: clamp(0.44rem, 1.7 cqw, 0.56rem);
+      font-weight: 800;
+      color: #0F172A;
+      margin-top: 3px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    
+    .url-text {
+      font-family: var(--font-display);
+      font-size: clamp(0.55rem, 2.3 cqw, 0.76rem);
+      font-weight: 700;
+      color: #E2876E;
+      letter-spacing: 0.03em;
+    }
+
+    /* LIGHTBOX MODAL FOR FULL VIEWPORT EXPANSION */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s var(--ease-out);
+    }
+    
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    .modal-card-container {
+      width: 92vw;
+      max-width: 780px;
+      transform: scale(0.9);
+      transition: transform 0.3s var(--ease-out);
+      position: relative;
+      container-type: inline-size;
+    }
+    
+    .modal-overlay.active .modal-card-container {
+      transform: scale(1);
+    }
+    
+    .close-modal-btn {
+      position: absolute;
+      top: -3.2rem;
+      right: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #FFFFFF;
+      font-size: 1.4rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .modal-card-container .biz-card {
+      width: 100%;
+      aspect-ratio: 1.75;
+      padding: 5%;
+      border-radius: 14px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+    }
+    
+    .modal-card-container .card-name {
+      font-size: clamp(1rem, 4.8 cqw, 2.2rem);
+      margin-bottom: 0.3rem;
+    }
+    
+    .modal-card-container .card-title {
+      font-size: clamp(0.55rem, 2.4 cqw, 1rem);
+    }
+    
+    .modal-card-container .card-contact {
+      font-size: clamp(0.5rem, 2.2 cqw, 0.95rem);
+      line-height: 1.5;
+    }
+    
+    .modal-card-container .qr-box img {
+      width: clamp(42px, 15 cqw, 100px);
+      height: clamp(42px, 15 cqw, 100px);
+    }
+    
+    .modal-card-container .scan-text {
+      font-size: clamp(0.42rem, 1.8 cqw, 0.78rem);
+    }
+    
+    .modal-card-container .url-text {
+      font-size: clamp(0.55rem, 2.4 cqw, 1.1rem);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-block">
+    <span class="header-eyebrow">Official Brand Identity</span>
+    <h1>Husam Al Sardy</h1>
+    <p class="sub">Slate & Terracotta Executive Card with Interactive Full Viewport & Scannable QR Code</p>
+  </div>
+
+  <div class="cards-container">
+    
+    <div class="card-wrap" onclick="openModal()">
+      <div class="card-meta-row">
+        <span class="card-palette-title">Executive Card — Slate & Terracotta</span>
+        <span class="zoom-hint">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          Expand Full View
+        </span>
+      </div>
+      <div class="biz-card" id="main-card">
+        <div class="card-left">
+          <div class="card-brand">
+            <div class="card-name">HUSAM AL SARDY</div>
+            <div class="card-title">General Manager & Educational Leader</div>
+          </div>
+          <div class="card-contact">
+            <div class="card-contact-row">📍 Tlaa Al-Ali / Amman, Jordan</div>
+            <div class="card-contact-row">📞 Jordan: +962 77 704 0774</div>
+            <div class="card-contact-row">📞 China: +86 18027141421</div>
+            <div class="card-contact-row">✉️ husamalsardy1@gmail.com</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <div class="qr-box">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://husamalsardy.com" alt="QR Code">
+            <span class="scan-text">SCAN SITE</span>
+          </div>
+          <div class="url-text">husamalsardy.com</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FULL VIEWPORT MODAL OVERLAY -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal-card-container">
+      <button class="close-modal-btn" onclick="closeModal(event, true)">&times;</button>
+      <div id="modalCardSlot"></div>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      const cardSource = document.getElementById('main-card');
+      const slot = document.getElementById('modalCardSlot');
+      slot.innerHTML = cardSource.outerHTML;
+      
+      const modal = document.getElementById('modalOverlay');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(e, force = false) {
+      if (force || e.target.classList.contains('modal-overlay') || e.target.classList.contains('close-modal-btn')) {
+        const modal = document.getElementById('modalOverlay');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal(null, true);
+    });
+  </script>
+
+</body>
+</html>
