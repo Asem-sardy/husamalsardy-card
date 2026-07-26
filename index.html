@@ -335,7 +335,7 @@
 
     /* Each dot carries its own direction's accent, so the control reads as
        colour rather than as numbering. */
-    .palette-dot[data-palette-set="2"] { --swatch: #E5C158; }
+    .palette-dot[data-palette-set="2"] { --swatch: #D77A61; }
     .palette-dot[data-palette-set="2"] { --swatch: #D77A61; }
     .palette-dot[data-palette-set="3"] { --swatch: #2AA7CC; }
     .palette-dot[data-palette-set="4"] { --swatch: #4A8BF0; }
@@ -1101,7 +1101,7 @@
 
       /* Keep the portfolio URL a real, clickable link in the exported PDF. */
       .print-official-url-banner a {
-        color: #8a6d1f !important;
+        color: #C8664D !important;
         text-decoration: underline !important;
       }
 
@@ -1113,7 +1113,7 @@
       section:last-of-type { border-bottom: none !important; }
 
       .eyebrow {
-        color: #8a6d1f !important;
+        color: #C8664D !important;
         font-size: 7.5pt !important;
         letter-spacing: 0.1em !important;
         margin-bottom: 2mm !important;
@@ -1141,7 +1141,7 @@
         font-family: var(--font-display);
         font-weight: 600;
         font-size: 10.5pt !important;
-        color: #8a6d1f !important;
+        color: #C8664D !important;
         margin-bottom: 2mm !important;
       }
 
@@ -1193,7 +1193,7 @@
 
       .featured-badge {
         background: none !important;
-        color: #8a6d1f !important;
+        color: #C8664D !important;
         padding: 0 !important;
         font-size: 7.5pt !important;
       }
@@ -1278,7 +1278,7 @@
       .credential-card {
         background: none !important;
         border: none !important;
-        border-left: 2pt solid #8a6d1f !important;
+        border-left: 2pt solid #C8664D !important;
         padding: 0 0 0 3mm !important;
         margin-bottom: 1.8mm !important;
       }
@@ -1391,7 +1391,12 @@
             <div>📍 Tlaa Al-Ali / Amman, Jordan</div>
             <div>📞 Jordan: +962 77 704 0774</div>
             <div>📞 Jordan: +962 77 730 7162</div>
+            <div>📞 Jordan: +962 77 730 7162</div>
             <div>📞 Russia: +7 964 331 73 03</div>
+            <div onclick="openWeChatModal()" style="cursor:pointer; color: var(--accent-gold); font-weight:600; display:inline-flex; align-items:center; gap:4px;">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02 2.665 0 4.826 1.8 4.826 4.02 0 2.218-2.161 4.018-4.824 4.018zm-5.69-3.956c0-2.88 2.825-5.214 6.309-5.214 3.486 0 6.31 2.334 6.31 5.214 0 2.882-2.824 5.216-6.31 5.216-.761 0-1.492-.112-2.17-.318l-2.078 1.096.536-1.879a5.163 5.163 0 0 1-2.597-4.115zm.698-3.081c-.244 0-.472.016-.697.045C4.857 5.093 3 6.643 3 8.52c0 .991.503 1.9 1.341 2.564l-.382 1.34 1.482-.782a5.556 5.556 0 0 0 1.547.227c.078.682.355 1.319.782 1.877A6.877 6.877 0 0 1 2.454 13l-2.454 1.295.634-2.222C.228 11.026 0 9.832 0 8.52c0-2.828 2.766-5.12 6.184-5.12 1.636 0 3.129.53 4.225 1.428a6.3 6.3 0 0 0-4.225 2.564z"/></svg>
+              <span>WeChat: Add Friend</span>
+            </div>
             <div>✉️ husamalsardy1@gmail.com</div>
           </div>
         </div>
@@ -1762,5 +1767,36 @@
 
     document.addEventListener('DOMContentLoaded', () => setTimeout(typeEffect, 1000));
   </script>
+
+  <!-- WECHAT QR MODAL -->
+  <div class="modal-overlay" id="weChatModal" onclick="closeWeChatModal(event)" style="position:fixed; inset:0; background:rgba(15,23,42,0.85); backdrop-filter:blur(12px); z-index:2000; display:none; justify-content:center; align-items:center; padding:1.5rem;">
+    <div style="background:#FFFFFF; color:#0F172A; border-radius:16px; padding:2rem; max-width:380px; width:100%; text-align:center; position:relative; box-shadow:0 25px 60px rgba(0,0,0,0.5);">
+      <button onclick="closeWeChatModal(event, true)" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:1.6rem; cursor:pointer; color:#64748B;">&times;</button>
+      <div style="font-family:var(--font-display); font-size:1.2rem; font-weight:800; color:#0F172A; margin-bottom:0.3rem;">WeChat Contact</div>
+      <div style="font-size:0.85rem; color:#64748B; margin-bottom:1.2rem;">Scan QR code to add Husam Al Sardy</div>
+      <img src="wechat_qr.png" alt="WeChat QR Code" style="width:240px; height:auto; border-radius:8px; display:block; margin:0 auto 1rem; border:1px solid #E2E8F0; padding:6px; background:#FFF;">
+      <div style="font-size:0.8rem; font-weight:600; color:#D77A61;">WeChat ID / Friend Scan</div>
+    </div>
+  </div>
+
+  <script>
+    function openWeChatModal() {
+      const modal = document.getElementById('weChatModal');
+      if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeWeChatModal(e, force = false) {
+      if (force || (e && e.target.id === 'weChatModal')) {
+        const modal = document.getElementById('weChatModal');
+        if (modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      }
+    }
+  </script>
+
 </body>
 </html>
