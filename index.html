@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-palette="2">
 <head>
-  <script>
-    try {
-      localStorage.removeItem('palette');
-      localStorage.removeItem('husam-palette');
-    } catch(e) {}
-  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Husam Al Sardy — General Manager & Educator</title>
@@ -18,8 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
-        :root {
-      /* Slate Charcoal & Warm Terracotta (Sole Brand Palette) */
+      :root {
+      /* Slate Charcoal & Warm Terracotta */
       --bg-main: #0F172A;
       --bg-surface: #1E293B;
       --bg-card: #1E293B;
@@ -55,9 +49,51 @@
        --------------------------------------------------------------- */
 
     /* 02 - Slate & Terracotta */
-    :root/* 03 - Oxford Navy & Cyan */
-    :root/* 04 - Velvet Night & Cobalt */
-    :root* {
+    :root[data-palette="2"] {
+      --bg-main: #16252C;      --bg-main-rgb: 22, 37, 44;
+      --bg-grad-top: #223843;
+      --bg-surface: #1E3038;   --bg-surface-rgb: 30, 48, 56;
+      --bg-card: #223843;      --bg-card-hover: #2A4550;
+      --accent-gold: #D77A61;  --accent-gold-hover: #E58E75;
+      --accent-rgb: 215, 122, 97;
+      --accent-deep: #A85942;  --on-accent: #16252C;
+      --accent-sage: #D8B4A0;  --accent-2-rgb: 216, 180, 160;
+      --text-main: #EFF1F3;    --text-muted: #A8B6BD;
+      --border-subtle: rgba(215, 122, 97, 0.22);
+      --border-strong: rgba(215, 122, 97, 0.48);
+    }
+
+    /* 03 - Oxford Navy & Cyan */
+    :root[data-palette="3"] {
+      --bg-main: #0A1128;      --bg-main-rgb: 10, 17, 40;
+      --bg-grad-top: #001F54;
+      --bg-surface: #04234D;   --bg-surface-rgb: 4, 35, 77;
+      --bg-card: #034078;      --bg-card-hover: #044B8C;
+      --accent-gold: #2AA7CC;  --accent-gold-hover: #45BBDD;
+      --accent-rgb: 42, 167, 204;
+      --accent-deep: #1282A2;  --on-accent: #06132E;
+      --accent-sage: #8FB8CE;  --accent-2-rgb: 143, 184, 206;
+      --text-main: #FEFCFB;    --text-muted: #9DB2C4;
+      --border-subtle: rgba(42, 167, 204, 0.22);
+      --border-strong: rgba(42, 167, 204, 0.48);
+    }
+
+    /* 04 - Velvet Night & Cobalt */
+    :root[data-palette="4"] {
+      --bg-main: #1B1725;      --bg-main-rgb: 27, 23, 37;
+      --bg-grad-top: #2A2438;
+      --bg-surface: #262131;   --bg-surface-rgb: 38, 33, 49;
+      --bg-card: #2E293A;      --bg-card-hover: #3A3348;
+      --accent-gold: #4A8BF0;  --accent-gold-hover: #6BA2F5;
+      --accent-rgb: 74, 139, 240;
+      --accent-deep: #226CE0;  --on-accent: #0E0B16;
+      --accent-sage: #A499B3;  --accent-2-rgb: 164, 153, 179;
+      --text-main: #F2EFF6;    --text-muted: #A499B3;
+      --border-subtle: rgba(74, 139, 240, 0.22);
+      --border-strong: rgba(74, 139, 240, 0.48);
+    }
+
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -252,7 +288,7 @@
     /* header and floating bar fade only - they carry their own transforms
        for the scroll fold, which a second animation would fight */
     .palette-revealing header,
-    .palette-revealing .mobile-cta-bar { display: none !important;
+    .palette-revealing .mobile-cta-bar {
       animation: paletteRevealFade 1s var(--ease-out) both;
     }
 
@@ -283,7 +319,7 @@
       .palette-revealing main,
       .palette-revealing footer,
       .palette-revealing header,
-      .palette-revealing .mobile-cta-bar { display: none !important; animation: none !important; }
+      .palette-revealing .mobile-cta-bar { animation: none !important; }
     }
 
     /* --- visual direction switcher --- */
@@ -335,32 +371,689 @@
 
     /* Each dot carries its own direction's accent, so the control reads as
        colour rather than as numbering. */
-    .palette-dot[data-palette-set="2"] { --swatch: #D77A61; }
+    .palette-dot[data-palette-set="1"] { --swatch: #E5C158; }
     .palette-dot[data-palette-set="2"] { --swatch: #D77A61; }
     .palette-dot[data-palette-set="3"] { --swatch: #2AA7CC; }
     .palette-dot[data-palette-set="4"] { --swatch: #4A8BF0; }
 
     /* Small screens: stays in the header but drops to bare swatches - no
        label, no numerals - so it never competes with the content. */
-        @media (max-width: 960px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 1.8rem; }
-      .hero-actions { flex-direction: column; width: 100%; gap: 0.85rem; }
-      .hero-actions .btn { width: 100% !important; max-width: 100% !important; box-sizing: border-box; justify-content: center; min-height: 48px; }
-      nav ul, .nav-actions .btn-desktop { display: none; }
-      .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
-      .mobile-cta-bar { display: none !important; display: none; }
+    @media (max-width: 960px) {
+      .palette-switcher { gap: 0.34rem; }
+      .palette-label { display: none; }
+
+      .palette-dot {
+        position: relative;
+        width: 15px;
+        height: 15px;
+        font-size: 0;
+        background: var(--swatch);
+        opacity: 0.42;
+        border: 1px solid transparent;
+        transition: opacity 0.2s ease, transform 0.2s var(--ease-out);
+      }
+
+      /* finger-sized target without enlarging the visible dot */
+      .palette-dot::after { content: ""; position: absolute; inset: -11px; }
+
+      .palette-dot[aria-pressed="true"] {
+        opacity: 1;
+        transform: scale(1.2);
+        background: var(--swatch);
+        border-color: rgba(255, 255, 255, 0.85);
+      }
     }
 
-    @media (max-width: 640px) {
-      header { padding: 0.75rem 1rem; }
-      main { padding: 1.5rem 1rem 3.5rem; overflow-x: hidden; }
-      .hero { padding: 1.5rem 0 2rem; }
-      .hero-title { font-size: clamp(2rem, 8vw, 2.5rem); }
-      .hero-card { padding: 1.25rem; }
-      .footer-social-links { flex-direction: column; width: 100%; gap: 0.6rem; }
-      .footer-social-links a { width: 100%; justify-content: center; min-height: 46px; }
-      footer { padding-bottom: max(5rem, calc(4rem + env(safe-area-inset-bottom))); }
+    /* The swatches take header width, so the wordmark must not wrap onto a
+       second line and push the header taller. */
+    @media (max-width: 960px) {
+      .brand-wordmark .title-main {
+        font-size: 0.92rem;
+        white-space: nowrap;
+      }
+      .wordmark-emblem { width: 28px; height: 28px; }
+      .abstract-h-svg { width: 16px; height: 16px; }
+      .nav-container { gap: 0.6rem; }
     }
+
+    @media (max-width: 380px) {
+      .brand-wordmark .title-main { font-size: 0.84rem; }
+      .palette-switcher { gap: 0.26rem; }
+      .palette-dot { width: 13px; height: 13px; }
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      min-height: 44px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      touch-action: manipulation;
+      transition: transform 0.16s var(--ease-out), background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.96);
+    }
+
+    .btn-primary {
+      background-color: var(--accent-gold);
+      color: var(--on-accent);
+      box-shadow: 0 4px 14px rgba(var(--accent-rgb), 0.35);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-gold-hover);
+      box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border-color: var(--border-strong);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      background: rgba(var(--accent-rgb), 0.08);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-size: 1.6rem;
+      padding: 0.5rem;
+      min-height: 44px;
+      min-width: 44px;
+      cursor: pointer;
+    }
+
+    .mobile-drawer {
+      display: flex;
+      position: fixed;
+      inset: 0;
+      background: rgba(var(--bg-main-rgb), 0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 999;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.75rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s var(--ease-out);
+      padding: 2rem 1.5rem;
+      padding-bottom: max(3rem, env(safe-area-inset-bottom));
+    }
+
+    .mobile-drawer.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-drawer a {
+      color: var(--text-main);
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+    }
+
+    .mobile-cta-bar {
+      display: none;
+      position: fixed;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(0);
+      z-index: 850;
+      background: rgba(var(--bg-surface-rgb), 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-strong);
+      padding: 0.5rem;
+      border-radius: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      gap: 0.5rem;
+      transition: transform 0.35s var(--ease-out);
+    }
+
+    .mobile-cta-bar.scroll-hidden {
+      transform: translateX(-50%) translateY(120%);
+    }
+
+    .mobile-cta-btn {
+      padding: 0.6rem 1.2rem;
+      min-height: 42px;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 6rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-gold);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+
+    .hero {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 7vw, 3.6rem);
+      line-height: 1.1;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+    }
+
+    .hero-typewriter {
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 3.5vw, 1.25rem);
+      color: var(--accent-gold);
+      font-weight: 600;
+      min-height: 2.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Shown only when printing - see the print block. */
+    .print-role-line { display: none; }
+
+    .typewriter-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.2rem;
+      background-color: var(--accent-gold);
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .hero-bio {
+      color: var(--text-muted);
+      font-size: clamp(0.98rem, 3vw, 1.05rem);
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .hero-actions .btn {
+      flex: 0 1 auto;
+      min-width: 160px;
+    }
+
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-sage));
+    }
+
+    .hero-card h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 3.6vw, 1.35rem);
+      color: var(--accent-gold);
+      margin-bottom: 1.25rem;
+      line-height: 1.3;
+    }
+
+    .contact-badge {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1rem;
+    }
+
+    .contact-badge div {
+      word-break: break-word;
+    }
+
+    section {
+      padding: clamp(3rem, 7vw, 5rem) 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .featured-practice {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      padding: clamp(1.5rem, 5vw, 3rem);
+      box-shadow: var(--shadow-card);
+    }
+
+    .featured-badge {
+      background: rgba(var(--accent-rgb), 0.15);
+      color: var(--accent-gold);
+      padding: 0.35rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .featured-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 4vw, 2.1rem);
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .featured-meta {
+      color: var(--accent-sage);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .featured-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      column-count: 1;
+    }
+
+    @media (min-width: 720px) {
+      .featured-bullets { column-count: 2; column-gap: 2rem; }
+      .featured-bullets li { break-inside: avoid; }
+    }
+
+    .featured-bullets li {
+      position: relative;
+      padding-left: 1.75rem;
+      color: var(--text-main);
+      font-size: clamp(0.95rem, 3vw, 1.05rem);
+      line-height: 1.55;
+    }
+
+    .featured-bullets li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--accent-gold);
+    }
+
+    .roles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .accordion-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    /* Roles with no detail list are shown as plain entries - no chevron,
+       nothing to tap, so the card never opens onto an empty panel. */
+    .role-static .accordion-header { cursor: default; }
+
+    .accordion-header {
+      padding: 1.25rem 1.5rem;
+      min-height: 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .role-info h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 3.5vw, 1.35rem);
+      color: var(--text-main);
+    }
+
+    .role-info p {
+      color: var(--accent-sage);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .accordion-icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+      transition: transform 0.35s var(--ease-out), background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .accordion-card.open .accordion-icon {
+      transform: rotate(180deg);
+      background: var(--accent-gold);
+      color: var(--on-accent);
+      border-color: var(--accent-gold);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.35s ease, opacity 0.3s ease;
+      padding: 0 1.5rem;
+    }
+
+    .accordion-card.open .accordion-content {
+      max-height: 800px;
+      opacity: 1;
+      padding: 1.25rem 1.5rem 1.5rem 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .role-desc-list {
+      list-style: disc;
+      padding-left: 1.25rem;
+      color: var(--text-muted);
+    }
+
+    .role-desc-list li {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .role-desc-list .empty-note {
+      list-style: none;
+      margin-left: -1.25rem;
+      font-style: italic;
+      color: var(--text-muted);
+      opacity: 0.8;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 1.1rem 1.4rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-strong);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    }
+
+    .skill-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .credential-card {
+      background: var(--bg-surface);
+      border-left: 3px solid var(--accent-gold);
+      padding: 1.5rem;
+      border-radius: 0 8px 8px 0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .credential-card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .credential-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+    }
+
+    .credential-card p {
+      color: var(--accent-sage);
+      font-size: 0.88rem;
+    }
+
+    footer {
+      padding: clamp(4rem, 8vw, 6rem) 1.5rem;
+      padding-bottom: max(7rem, calc(5rem + env(safe-area-inset-bottom)));
+      text-align: center;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-content {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .footer-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      color: var(--text-main);
+      margin-bottom: 1rem;
+    }
+
+    .footer-content p.footer-bio-text {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-actions .btn {
+      flex: 1 1 200px;
+      max-width: 320px;
+    }
+
+    .footer-social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .footer-social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s ease;
+    }
+
+    .footer-social-links a:hover {
+      color: var(--accent-gold);
+      border-color: var(--accent-gold);
+      transform: translateY(-2px);
+      background: rgba(var(--accent-rgb), 0.08);
+    }
+
+    .footer-copyright-row {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .made-by-btn {
+      background: rgba(var(--accent-rgb), 0.12);
+      border: 1px solid var(--border-strong);
+      color: var(--accent-gold);
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+      touch-action: manipulation;
+      text-decoration: none;
+    }
+
+    .made-by-btn:hover {
+      background: var(--accent-gold);
+      color: var(--on-accent);
+      box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.4);
+    }
+
+    .print-official-url-banner {
+      display: none;
+      text-align: center;
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--accent-gold);
+      padding: 6px 12px;
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+      nav ul, .nav-actions .btn-desktop { display: none; }
+      .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+      .mobile-cta-bar { display: flex; }
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 0.75rem 1rem; }
+      main { padding: 2rem 1rem 4rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .footer-social-links { flex-direction: column; width: 100%; }
+      .footer-social-links a { width: 100%; justify-content: center; }
+      footer { padding-bottom: max(9rem, calc(7rem + env(safe-area-inset-bottom))); }
     }
 
     /* ============================================================
@@ -444,7 +1137,7 @@
 
       /* Keep the portfolio URL a real, clickable link in the exported PDF. */
       .print-official-url-banner a {
-        color: #C8664D !important;
+        color: #8a6d1f !important;
         text-decoration: underline !important;
       }
 
@@ -456,7 +1149,7 @@
       section:last-of-type { border-bottom: none !important; }
 
       .eyebrow {
-        color: #C8664D !important;
+        color: #8a6d1f !important;
         font-size: 7.5pt !important;
         letter-spacing: 0.1em !important;
         margin-bottom: 2mm !important;
@@ -484,7 +1177,7 @@
         font-family: var(--font-display);
         font-weight: 600;
         font-size: 10.5pt !important;
-        color: #C8664D !important;
+        color: #8a6d1f !important;
         margin-bottom: 2mm !important;
       }
 
@@ -536,7 +1229,7 @@
 
       .featured-badge {
         background: none !important;
-        color: #C8664D !important;
+        color: #8a6d1f !important;
         padding: 0 !important;
         font-size: 7.5pt !important;
       }
@@ -621,7 +1314,7 @@
       .credential-card {
         background: none !important;
         border: none !important;
-        border-left: 2pt solid #C8664D !important;
+        border-left: 2pt solid #8a6d1f !important;
         padding: 0 0 0 3mm !important;
         margin-bottom: 1.8mm !important;
       }
@@ -634,7 +1327,10 @@
 <body>
   <script>
     /* Runs before paint so a saved direction never flashes the default. */
-    document.documentElement.setAttribute('data-palette', '2'); try { localStorage.setItem('palette', '2'); } catch(e) {}
+    try {
+      var p = localStorage.getItem('palette');
+      if (p && p !== '1') document.documentElement.setAttribute('data-palette', p);
+    } catch (e) {}
   </script>
 
   <canvas id="ambient-canvas"></canvas>
@@ -665,10 +1361,10 @@
         </ul>
       </nav>
 
-      <!-- Palette 02 (Slate & Terracotta) permanently locked as single brand direction -->
+      <!-- Palette 02 permanently locked as brand direction -->
 
       <div class="nav-actions">
-        <a href="Husam_Al_Sardy_CV.pdf?v=v14" target="_blank" rel="noopener" class="btn btn-primary btn-desktop">
+        <a href="Husam_Al_Sardy_CV.pdf?v=v15" target="_blank" rel="noopener" class="btn btn-primary btn-desktop">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm1 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2z"/></svg>
           Download PDF
         </a>
@@ -679,7 +1375,7 @@
 
   <!-- Mobile Floating Quick Action Bar -->
   <div class="mobile-cta-bar" id="mobileCtaBar">
-    <a href="Husam_Al_Sardy_CV.pdf?v=v14" target="_blank" rel="noopener" class="mobile-cta-btn btn-primary">
+    <a href="Husam_Al_Sardy_CV.pdf?v=v15" target="_blank" rel="noopener" class="mobile-cta-btn btn-primary">
       <svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm1 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2z"/></svg>
       <span>Download PDF</span>
     </a>
@@ -692,7 +1388,7 @@
     <a href="#experience" onclick="toggleMobileMenu()">Experience</a>
     <a href="#skills" onclick="toggleMobileMenu()">Skills</a>
     <a href="#credentials" onclick="toggleMobileMenu()">Credentials</a>
-    <a href="Husam_Al_Sardy_CV.pdf?v=v14" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 1rem; width: 100%; max-width: 280px;">Download PDF</a>
+    <a href="Husam_Al_Sardy_CV.pdf?v=v15" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 1rem; width: 100%; max-width: 280px;">Download PDF</a>
     <button onclick="toggleMobileMenu()" class="btn btn-outline" style="width: 100%; max-width: 280px;">Close Menu</button>
   </div>
 
@@ -722,7 +1418,7 @@
 
           <div class="hero-actions">
             <a href="mailto:husamalsardy1@gmail.com" class="btn btn-primary">Get in Touch</a>
-            <a href="Husam_Al_Sardy_CV.pdf?v=v14" target="_blank" rel="noopener" class="btn btn-outline">Download PDF</a>
+            <a href="Husam_Al_Sardy_CV.pdf?v=v15" target="_blank" rel="noopener" class="btn btn-outline">Download PDF</a>
           </div>
         </div>
 
@@ -730,16 +1426,16 @@
           <span class="eyebrow">Contact</span>
           <h3>"Encourage students to read out loud in class."</h3>
 
-          <div class="contact-badge" style="display:flex; flex-direction:column; gap:0.6rem;">
+          <div class="contact-badge">
             <div>📍 Tlaa Al-Ali / Amman, Jordan</div>
-            <div>📞 Jordan: <a href="tel:+962777040774" style="color:inherit; text-decoration:none;">+962 77 704 0774</a></div>
-            <div>📞 Jordan: <a href="tel:+962777307162" style="color:inherit; text-decoration:none;">+962 77 730 7162</a></div>
-            <div>📞 Russia: <a href="tel:+79643317303" style="color:inherit; text-decoration:none;">+7 964 331 73 03</a></div>
-            <div>💬 WeChat: <a href="https://asem-sardy.github.io/husamalsardy-card/card.html?v=v14" target="_blank" onclick="openWeChatModal(); return false;" style="color: var(--accent-gold); font-weight:600; text-decoration:underline;">Add Friend (Scan QR)</a></div>
-            <div>✉️ <a href="mailto:husamalsardy1@gmail.com" style="color:inherit; text-decoration:none;">husamalsardy1@gmail.com</a></div>
+            <div>📞 Jordan: +962 77 704 0774</div>
+            <div>📞 Jordan: +962 77 730 7162</div>
+            <div>📞 Russia: +7 964 331 73 03</div>
+            <div onclick="openWeChatModal()" style="cursor:pointer; color: var(--accent-gold); font-weight:600; text-decoration:underline;">
+              💬 WeChat: Add Friend (Scan QR)
+            </div>
+            <div>✉️ husamalsardy1@gmail.com</div>
           </div>
-        </div>
-        </div>
         </div>
       </div>
     </section>
@@ -955,10 +1651,10 @@
 
       <div class="footer-actions">
         <a href="mailto:husamalsardy1@gmail.com" class="btn btn-primary">husamalsardy1@gmail.com</a>
-        <a href="Husam_Al_Sardy_CV.pdf?v=v14" target="_blank" rel="noopener" class="btn btn-outline">Download PDF CV</a>
+        <a href="Husam_Al_Sardy_CV.pdf?v=v15" target="_blank" rel="noopener" class="btn btn-outline">Download PDF CV</a>
       </div>
 
-            <div class="footer-social-links">
+      <div class="footer-social-links">
         <a href="https://wa.me/962777040774" target="_blank" rel="noopener" aria-label="WhatsApp Direct">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
           <span>WhatsApp Direct</span>
@@ -1066,6 +1762,44 @@
     document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
 
     /* --- visual direction switcher --- */
+    function applyPalette(id, persist) {
+      if (id === '1') document.documentElement.removeAttribute('data-palette');
+      else document.documentElement.setAttribute('data-palette', id);
+
+      document.querySelectorAll('.palette-dot').forEach(function (d) {
+        d.setAttribute('aria-pressed', String(d.dataset.paletteSet === id));
+      });
+
+      if (persist) {
+        try { localStorage.setItem('palette', id); } catch (e) {}
+        // only cross-fade on a deliberate switch, then clean the class off
+        // Replay the page-load reveal. Removing the class and forcing a
+        // reflow before re-adding restarts it even on the active swatch.
+        var body = document.body;
+        body.classList.remove('palette-revealing');
+        void body.offsetWidth;
+        body.classList.add('palette-revealing');
+        clearTimeout(applyPalette._t);
+        applyPalette._t = setTimeout(function () {
+          body.classList.remove('palette-revealing');
+        }, 1000);
+      }
+      // the canvas caches its colours, so it has to be rebuilt on a change
+      if (typeof initCanvas === 'function') initCanvas();
+    }
+
+    document.querySelectorAll('.palette-dot').forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        applyPalette(dot.dataset.paletteSet, true);
+      });
+    });
+
+    (function () {
+      var saved = '1';
+      try { saved = localStorage.getItem('palette') || '1'; } catch (e) {}
+      applyPalette(saved, false);
+    })();
+
     function toggleAccordion(header) {
       header.parentElement.classList.toggle('open');
     }
@@ -1115,12 +1849,12 @@
 
   <!-- WECHAT QR MODAL -->
   <div class="modal-overlay" id="weChatModal" onclick="closeWeChatModal(event)" style="position:fixed; inset:0; background:rgba(15,23,42,0.85); backdrop-filter:blur(12px); z-index:2000; display:none; justify-content:center; align-items:center; padding:1.5rem;">
-    <div style="background:#FFFFFF; color:#0F172A; border-radius:16px; padding:2rem; max-width:380px; width:100%; text-align:center; position:relative; box-shadow:0 25px 60px rgba(0,0,0,0.5);">
+    <div style="background:#FFFFFF; color:#0F172A; border-radius:20px; padding:2.2rem; max-width:380px; width:100%; text-align:center; position:relative; box-shadow:0 25px 60px rgba(0,0,0,0.5);">
       <button onclick="closeWeChatModal(event, true)" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:1.6rem; cursor:pointer; color:#64748B;">&times;</button>
-      <div style="font-family:var(--font-display); font-size:1.2rem; font-weight:800; color:#0F172A; margin-bottom:0.3rem;">WeChat Contact</div>
+      <div style="font-family:var(--font-display); font-size:1.35rem; font-weight:800; color:#0F172A; margin-bottom:0.3rem;">WeChat Contact</div>
       <div style="font-size:0.85rem; color:#64748B; margin-bottom:1.2rem;">Scan QR code to add Husam Al Sardy</div>
-      <img src="wechat_qr.png?v=v14" alt="WeChat QR Code" style="width:240px; height:auto; border-radius:8px; display:block; margin:0 auto 1rem; border:1px solid #E2E8F0; padding:6px; background:#FFF;">
-      <div style="font-size:0.8rem; font-weight:600; color:#D77A61;">WeChat ID / Friend Scan</div>
+      <img src="wechat_qr.png?v=v15" alt="WeChat QR Code" style="width:240px; height:auto; border-radius:12px; display:block; margin:0 auto 1rem; border:1px solid #E2E8F0; padding:8px; background:#FFF;">
+      <div style="font-size:0.88rem; font-weight:700; color:#D77A61;">WeChat ID / Friend Scan</div>
     </div>
   </div>
 
