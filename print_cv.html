@@ -6,7 +6,7 @@
   <style>
     @page {
       size: A4 portrait;
-      margin: 12mm 15mm;
+      margin: 10mm 14mm;
     }
     
     * {
@@ -20,8 +20,8 @@
       background-color: #FFFFFF !important;
       color: #1E293B !important;
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      font-size: 9.5pt;
-      line-height: 1.5;
+      font-size: 9.2pt;
+      line-height: 1.45;
       padding: 0;
       margin: 0;
       -webkit-print-color-adjust: exact;
@@ -35,12 +35,12 @@
     }
     
     .top-banner {
-      font-size: 8pt;
+      font-size: 7.8pt;
       font-weight: 600;
       color: #64748B;
-      padding-bottom: 3mm;
-      margin-bottom: 5mm;
-      border-bottom: 1pt solid #E2E8F0;
+      padding-bottom: 2mm;
+      margin-bottom: 3.5mm;
+      border-bottom: 0.75pt solid #E2E8F0;
     }
     
     .top-banner a {
@@ -51,52 +51,52 @@
     
     .eyebrow {
       color: #C8664D;
-      font-size: 8pt;
+      font-size: 7.5pt;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 1.5mm;
+      margin-bottom: 1mm;
       display: block;
     }
     
     .name-title {
-      font-size: 22pt;
+      font-size: 20pt;
       font-weight: 800;
       color: #0F172A;
-      margin-bottom: 1mm;
+      margin-bottom: 0.8mm;
       line-height: 1.15;
     }
     
     .role-line {
-      font-size: 11pt;
+      font-size: 10.5pt;
       font-weight: 700;
       color: #C8664D;
-      margin-bottom: 3mm;
+      margin-bottom: 2.5mm;
     }
     
     .bio-text {
-      font-size: 9.5pt;
+      font-size: 9pt;
       color: #334155;
-      margin-bottom: 4mm;
+      margin-bottom: 3mm;
     }
     
     .contact-card {
-      margin-bottom: 5mm;
+      margin-bottom: 3.5mm;
     }
     
     .contact-card h3 {
-      font-size: 9.5pt;
+      font-size: 9pt;
       font-style: italic;
       font-weight: 500;
       color: #475569;
-      margin-bottom: 2mm;
+      margin-bottom: 1.5mm;
     }
     
     .contact-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 2mm 5mm;
-      font-size: 8.8pt;
+      gap: 1.5mm 4mm;
+      font-size: 8.5pt;
       color: #0F172A;
     }
     
@@ -106,11 +106,11 @@
       text-decoration: underline;
     }
     
+    /* REMOVED page-break-inside: avoid TO ALLOW CONTINUOUS FLOW WITHOUT BLANK GAPS */
     .section-block {
-      margin-bottom: 5mm;
-      padding-bottom: 4mm;
-      border-bottom: 0.75pt solid #F1F5F9;
-      page-break-inside: avoid;
+      margin-bottom: 3.5mm;
+      padding-bottom: 3mm;
+      border-bottom: 0.5pt solid #F1F5F9;
     }
     
     .section-block:last-child {
@@ -118,85 +118,90 @@
     }
     
     .section-title {
-      font-size: 13.5pt;
+      font-size: 12.5pt;
       font-weight: 800;
       color: #C8664D;
-      border-bottom: 1.5pt solid #C8664D;
-      padding-bottom: 1.5mm;
-      margin-bottom: 3mm;
+      border-bottom: 1.2pt solid #C8664D;
+      padding-bottom: 1mm;
+      margin-bottom: 2.5mm;
       text-transform: capitalize;
     }
     
     .featured-role-title {
-      font-size: 11.5pt;
+      font-size: 11pt;
       font-weight: 700;
       color: #0F172A;
-      margin-bottom: 1mm;
+      margin-bottom: 0.8mm;
     }
     
     .featured-meta {
-      font-size: 9pt;
+      font-size: 8.5pt;
       color: #64748B;
-      margin-bottom: 2.5mm;
+      margin-bottom: 2mm;
     }
     
     ul.bullet-list {
       list-style-type: disc;
-      padding-left: 5mm;
-      margin-top: 1.5mm;
-      margin-bottom: 3mm;
+      padding-left: 4.5mm;
+      margin-top: 1mm;
+      margin-bottom: 2mm;
     }
     
     ul.bullet-list li {
-      font-size: 8.8pt;
+      font-size: 8.5pt;
       color: #334155;
-      margin-bottom: 1.5mm;
-      line-height: 1.45;
+      margin-bottom: 1mm;
+      line-height: 1.4;
     }
     
     .role-item {
-      margin-bottom: 3.5mm;
+      margin-bottom: 3mm;
+      page-break-inside: avoid;
     }
     
     .role-item h4 {
-      font-size: 10.5pt;
+      font-size: 10pt;
       font-weight: 700;
       color: #0F172A;
     }
     
     .role-item .sub-meta {
-      font-size: 8.8pt;
+      font-size: 8.5pt;
       color: #C8664D;
       font-weight: 600;
-      margin-bottom: 1.5mm;
+      margin-bottom: 1mm;
     }
     
-    .skill-inline-list {
-      font-size: 9pt;
+    /* VERTICAL SKILLS LIST AS REQUESTED BY USER */
+    ul.vertical-skills-list {
+      list-style-type: disc;
+      padding-left: 4.5mm;
+      margin-top: 1.5mm;
+      margin-bottom: 2mm;
+    }
+    
+    ul.vertical-skills-list li {
+      font-size: 8.8pt;
+      font-weight: 500;
       color: #0F172A;
-      line-height: 1.6;
-    }
-    
-    .skill-inline-list span {
-      color: #C8664D;
-      font-weight: 700;
-      margin: 0 1.5mm;
+      margin-bottom: 1.2mm;
     }
     
     .cred-item {
       border-left: 2.5pt solid #C8664D;
-      padding-left: 3.5mm;
-      margin-bottom: 3mm;
+      padding-left: 3mm;
+      margin-bottom: 2.5mm;
+      page-break-inside: avoid;
     }
     
     .cred-item h4 {
-      font-size: 9.8pt;
+      font-size: 9.5pt;
       font-weight: 700;
       color: #0F172A;
     }
     
     .cred-item p {
-      font-size: 8.8pt;
+      font-size: 8.5pt;
       color: #64748B;
     }
   </style>
@@ -216,14 +221,14 @@
     <p class="bio-text">English Teacher with 3+ years of experience across education, sales, HR and nutrition &mdash; now General Manager at AL SARDY.</p>
     
     <div class="contact-card">
-      <span class="eyebrow" style="font-size:7.5pt;">Contact</span>
+      <span class="eyebrow" style="font-size:7pt;">Contact</span>
       <h3>"Encourage students to read out loud in class."</h3>
       <div class="contact-row">
         <span>📍 Tlaa Al-Ali / Amman, Jordan</span>
         <span>📞 Jordan: +962 77 704 0774</span>
         <span>📞 Jordan: +962 77 730 7162</span>
         <span>📞 Russia: +7 964 331 73 03</span>
-        <span>💬 WeChat: <a href="https://asem-sardy.github.io/husamalsardy-card/card.html?v=v28" target="_blank">Add Friend (Scan QR)</a></span>
+        <span>💬 WeChat: <a href="https://asem-sardy.github.io/husamalsardy-card/card.html?v=v30" target="_blank">Add Friend (Scan QR)</a></span>
         <span>✉️ husamalsardy1@gmail.com</span>
       </div>
     </div>
@@ -233,7 +238,7 @@
   <div class="section-block">
     <span class="eyebrow">Pedagogical Practice</span>
     <h2 class="section-title">English Teacher</h2>
-    <span class="eyebrow" style="font-size:7.5pt; margin-top:2mm;">Featured Role</span>
+    <span class="eyebrow" style="font-size:7pt; margin-top:1.5mm;">Featured Role</span>
     <h3 class="featured-role-title">English Teacher</h3>
     <div class="featured-meta">BIS &mdash; Bradford's International School &middot; 3 Years</div>
 
@@ -335,13 +340,20 @@
     </div>
   </div>
 
-  <!-- COMPETENCY FRAMEWORK -->
+  <!-- COMPETENCY FRAMEWORK: VERTICAL LIST AS REQUESTED BY USER -->
   <div class="section-block">
     <span class="eyebrow">Competency Framework</span>
     <h2 class="section-title">Skills & Languages</h2>
-    <div class="skill-inline-list">
-      Computer Skills <span>&middot;</span> Event & Conference Planning <span>&middot;</span> Building & Nurturing Relationships <span>&middot;</span> Resilience Under Pressure <span>&middot;</span> IT Skills <span>&middot;</span> Interpersonal Communication <span>&middot;</span> English &mdash; Excellent <span>&middot;</span> Arabic &mdash; Native Speaker
-    </div>
+    <ul class="vertical-skills-list">
+      <li>Computer Skills</li>
+      <li>Event & Conference Planning</li>
+      <li>Building & Nurturing Relationships</li>
+      <li>Resilience Under Pressure</li>
+      <li>IT Skills</li>
+      <li>Interpersonal Communication</li>
+      <li>English &mdash; Excellent</li>
+      <li>Arabic &mdash; Native Speaker</li>
+    </ul>
   </div>
 
   <!-- CREDENTIALS & EDUCATION -->
