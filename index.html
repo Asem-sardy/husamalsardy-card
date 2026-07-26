@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="2">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -12,30 +12,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      /* Emerald Chalkboard & Gold Palette */
-      --bg-main: #0B1E17;
-      --bg-surface: #122B22;
-      --bg-card: #18372C;
-      --bg-card-hover: #1F4538;
-      --accent-gold: #E5C158;
-      --accent-gold-hover: #F3CF65;
-      --accent-cream: #F4F8F5;
-      --accent-sage: #8EA89D;
-      --text-main: #F4F8F5;
-      --text-muted: #8EA89D;
-      --border-subtle: rgba(var(--accent-rgb), 0.2);
-      --border-strong: rgba(var(--accent-rgb), 0.45);
+      :root {
+      /* Palette 02: Slate Charcoal & Warm Terracotta */
+      --bg-main: #0F172A;
+      --bg-surface: #1E293B;
+      --bg-card: #1E293B;
+      --bg-card-hover: #334155;
+      --accent-gold: #D77A61;
+      --accent-gold-hover: #E2876E;
+      --accent-cream: #F8FAFC;
+      --accent-sage: #94A3B8;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border-subtle: rgba(215, 122, 97, 0.25);
+      --border-strong: rgba(215, 122, 97, 0.5);
       --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.4);
 
-      /* rgb triplets so alpha variants can follow the theme too */
-      --bg-main-rgb: 11, 30, 23;
-      --bg-surface-rgb: 18, 43, 34;
-      --accent-rgb: 229, 193, 88;
-      --accent-2-rgb: 142, 168, 157;
-      --bg-grad-top: #153329;
-      --accent-deep: #B38F2E;
-      --on-accent: #0B1E17;
+      --bg-main-rgb: 15, 23, 42;
+      --bg-surface-rgb: 30, 41, 59;
+      --accent-rgb: 215, 122, 97;
+      --accent-2-rgb: 148, 163, 184;
+      --bg-grad-top: #1E293B;
+      --accent-deep: #B85B43;
+      --on-accent: #FFFFFF;
 
       --font-display: 'Space Grotesk', system-ui, sans-serif;
       --font-body: 'Inter', system-ui, sans-serif;
@@ -1328,10 +1327,7 @@
 <body>
   <script>
     /* Runs before paint so a saved direction never flashes the default. */
-    try {
-      var p = localStorage.getItem('palette');
-      if (p && p !== '1') document.documentElement.setAttribute('data-palette', p);
-    } catch (e) {}
+    document.documentElement.setAttribute('data-palette', '2'); try { localStorage.setItem('palette', '2'); } catch(e) {}
   </script>
 
   <canvas id="ambient-canvas"></canvas>
@@ -1757,28 +1753,7 @@
 
     /* --- visual direction switcher --- */
     function applyPalette(id, persist) {
-      if (id === '1') document.documentElement.removeAttribute('data-palette');
-      else document.documentElement.setAttribute('data-palette', id);
-
-      document.querySelectorAll('.palette-dot').forEach(function (d) {
-        d.setAttribute('aria-pressed', String(d.dataset.paletteSet === id));
-      });
-
-      if (persist) {
-        try { localStorage.setItem('palette', id); } catch (e) {}
-        // only cross-fade on a deliberate switch, then clean the class off
-        // Replay the page-load reveal. Removing the class and forcing a
-        // reflow before re-adding restarts it even on the active swatch.
-        var body = document.body;
-        body.classList.remove('palette-revealing');
-        void body.offsetWidth;
-        body.classList.add('palette-revealing');
-        clearTimeout(applyPalette._t);
-        applyPalette._t = setTimeout(function () {
-          body.classList.remove('palette-revealing');
-        }, 1000);
-      }
-      // the canvas caches its colours, so it has to be rebuilt on a change
+      document.documentElement.setAttribute('data-palette', '2');
       if (typeof initCanvas === 'function') initCanvas();
     }
 
@@ -1788,11 +1763,7 @@
       });
     });
 
-    (function () {
-      var saved = '1';
-      try { saved = localStorage.getItem('palette') || '1'; } catch (e) {}
-      applyPalette(saved, false);
-    })();
+    applyPalette('2', true);
 
     function toggleAccordion(header) {
       header.parentElement.classList.toggle('open');
